@@ -1,0 +1,4 @@
+.idea/
+node_modules/
+ormconfig.json
+package-lock.json
