@@ -30,7 +30,7 @@ The project is structured and ready to evolve into a full authentication system 
 
 Clone the repository:
 ```bash
-git clone https://github.com/<your-user>/lock-in-api.git
+git clone https://github.com/mj01px/lock-in-api.git
 cd lock-in-api
 ```
 
@@ -39,12 +39,6 @@ Install dependencies:
 yarn
 # or
 npm install
-```
-
-Create a `.env` file in the project root:
-```bash
-DATABASE_URL=postgres://user:password@localhost:5432/lockin
-PORT=3000
 ```
 
 Run database migrations:
