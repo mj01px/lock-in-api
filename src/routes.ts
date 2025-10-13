@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import { CreateProfileController } from "./controllers/CreateProfileController";
-import { ListProfileController } from "./controllers/ListProfileController";
-import { UpdateProfileController } from "./controllers/UpdateProfileController";
-import { DeleteProfileController } from "./controllers/DeleteProfileController";
+import { CreateProfileController } from "./controllers/profiles/CreateProfileController";
+import { ListProfileController } from "./controllers/profiles/ListProfileController";
+import { UpdateProfileController } from "./controllers/profiles/UpdateProfileController";
+import { DeleteProfileController } from "./controllers/profiles/DeleteProfileController";
 
 const routes = Router();
 

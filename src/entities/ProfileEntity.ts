@@ -1,23 +1,25 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { v4 as uuid } from 'uuid';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
-@Entity("profiles")
+@Entity('profiles')
 export class ProfileEntity {
-    @PrimaryColumn()
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string; // vira CHAR(36) no MySQL
 
-    @Column()
+    @Column({ type: 'varchar', length: 100 })
     profile: string;
 
-    @CreateDateColumn()
-    created_at!: Date;
+    @CreateDateColumn({
+        type: 'timestamp',
+        precision: 6,
+        default: () => 'CURRENT_TIMESTAMP(6)',
+    })
+    created_at: Date;
 
-    @UpdateDateColumn()
-    updated_at!: Date;
-
-    constructor() {
-        if (!this.id) {
-            this.id = uuid();
-        }
-    }
+    @UpdateDateColumn({
+        type: 'timestamp',
+        precision: 6,
+        default: () => 'CURRENT_TIMESTAMP(6)',
+        onUpdate: 'CURRENT_TIMESTAMP(6)',
+    })
+    updated_at: Date;
 }

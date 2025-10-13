@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UpdateProfileService } from "../services/profile/UpdateProfileService";
+import { UpdateProfileService } from "../../services/profiles/UpdateProfileService";
 
 export class UpdateProfileController {
     async handle(request: Request, response: Response) {

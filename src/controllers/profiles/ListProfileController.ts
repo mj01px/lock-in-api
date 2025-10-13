@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListProfileService } from "../services/profile/ListProfileService";
+import { ListProfileService } from "../../services/profiles/ListProfileService";
 
 export class ListProfileController {
     async handle(request: Request, response: Response) {

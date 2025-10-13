@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { DeleteProfileService } from "../services/profile/DeleteProfileService";
+import { DeleteProfileService } from "../../services/profiles/DeleteProfileService";
 
 export class DeleteProfileController {
     async handle(request: Request, response: Response) {
