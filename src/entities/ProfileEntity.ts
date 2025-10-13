@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity('profiles')
 export class ProfileEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string; // vira CHAR(36) no MySQL
+    id: string;
 
     @Column({ type: 'varchar', length: 100 })
     profile: string;
