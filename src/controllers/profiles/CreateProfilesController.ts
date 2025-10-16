@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { CreateProfileService } from "../../services/profiles/CreateProfileService";
+import { CreateProfilesService } from "../../services/profiles/CreateProfilesService";
 
-export class CreateProfileController {
+export class CreateProfilesController {
     async handle(request: Request, response: Response) {
 
         const { profile } = request.body;
@@ -10,7 +10,7 @@ export class CreateProfileController {
             profile: profile
         }
 
-        const createProfileService = new CreateProfileService();
+        const createProfileService = new CreateProfilesService();
         const ret = await createProfileService.execute(newProfile);
         return response.json(ret);
     }

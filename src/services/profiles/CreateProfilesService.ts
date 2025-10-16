@@ -1,10 +1,10 @@
-import { ProfileInterface } from "../../interfaces/ProfileInterface";
-import { ProfileRepository} from "../../repositories/ProfileRepository";
+import { ProfilesInterface } from "../../interfaces/ProfilesInterface";
+import { ProfilesRepository} from "../../repositories/ProfilesRepository";
 import { getCustomRepository } from "typeorm";
 
-export class CreateProfileService {
-    async execute({ profile }: ProfileInterface) {
-        const profileRepository = getCustomRepository(ProfileRepository);
+export class CreateProfilesService {
+    async execute({ profile }: ProfilesInterface) {
+        const profileRepository = getCustomRepository(ProfilesRepository);
 
         const profileAlreadyExists = await profileRepository.findOne({ profile });
 

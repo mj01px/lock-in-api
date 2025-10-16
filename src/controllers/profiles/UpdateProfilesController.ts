@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { UpdateProfileService } from "../../services/profiles/UpdateProfileService";
+import { UpdateProfilesService } from "../../services/profiles/UpdateProfilesService";
 
-export class UpdateProfileController {
+export class UpdateProfilesController {
     async handle(request: Request, response: Response) {
         const { id } = request.params;
         const { profile } = request.body;
@@ -10,7 +10,7 @@ export class UpdateProfileController {
             id: id,
             profile: profile };
 
-        const updateProfileService = new UpdateProfileService();
+        const updateProfileService = new UpdateProfilesService();
         const ret = await updateProfileService.execute({ id, profile })
         return response.json(ret);
     }

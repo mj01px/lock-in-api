@@ -1,4 +1,4 @@
-export interface ProfileInterface {
+export interface ProfilesInterface {
     id?: string;
     profile: string;
 }

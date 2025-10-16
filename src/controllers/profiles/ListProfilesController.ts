@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
-import { ListProfileService } from "../../services/profiles/ListProfileService";
+import { ListProfilesService } from "../../services/profiles/ListProfilesService";
 
-export class ListProfileController {
+export class ListProfilesController {
     async handle(request: Request, response: Response) {
-        const listProfileService = new ListProfileService();
+        const listProfileService = new ListProfilesService();
         const ret = await listProfileService.execute();
         return response.json(ret);
     }
 
-    async findById(request: Request, response: Response) {
+    async findByID(request: Request, response: Response) {
         const id = request.params.id;
-        const listProfileService = new ListProfileService();
+        const listProfileService = new ListProfilesService();
         const ret = await listProfileService.findByID(id);
         return response.json(ret);
     }
