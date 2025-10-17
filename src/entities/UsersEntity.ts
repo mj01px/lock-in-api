@@ -1,45 +1,81 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
-import { ManyToOne, JoinColumn } from "typeorm";
-import {ProfilesEntity} from "./ProfilesEntity";
+/**
+ * UsersEntity
+ *
+ * Represents an application user.
+ *
+ * Behavior:
+ * - Maps to the "users" table in the database
+ * - Links each user to a profile (admin, user, etc.)
+ * - Automatically tracks creation and update timestamps
+ *
+ * Example record:
+ * {
+ *   "id": "uuid",
+ *   "username": "john_doe",
+ *   "email": "john@example.com",
+ *   "birthdate": "2000-05-20",
+ *   "profile_id": "uuid",
+ *   "created_at": "2025-10-17T18:00:00Z",
+ *   "updated_at": "2025-10-17T18:00:00Z"
+ * }
+ */
 
-@Entity('users')
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    CreateDateColumn,
+    UpdateDateColumn,
+    ManyToOne,
+    JoinColumn,
+} from "typeorm";
+import { ProfilesEntity } from "./ProfilesEntity";
+
+@Entity("users")
 export class UsersEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    // Primary key (UUID)
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
 
-    @Column({ type: 'varchar', length: 100 })
-    username: string;
+    // Username
+    @Column({ type: "varchar", length: 100 })
+    username!: string;
 
-    @Column({ type: 'varchar', length: 100 })
-    email: string;
+    // User email
+    @Column({ type: "varchar", length: 100 })
+    email!: string;
 
-    @Column({ type: 'varchar', length: 100 })
-    password: string;
+    // Hashed password
+    @Column({ type: "varchar", length: 100 })
+    password!: string;
 
-    @Column({ type: 'date' })
-    birthdate: Date;
+    // Date of birth
+    @Column({ type: "date" })
+    birthdate!: Date;
 
-    // foreign key
-    @Column({ type: 'char', length: 36, nullable: true })
-    profile_id: string;
+    // Foreign key to profile
+    @Column({ type: "char", length: 36, nullable: true })
+    profile_id!: string;
 
-    // relationship
-    @ManyToOne(() => ProfilesEntity, { onDelete: 'SET NULL' })
-    @JoinColumn({ name: 'profile_id' })
-    profile: ProfilesEntity;
+    // Relationship to ProfilesEntity
+    @ManyToOne(() => ProfilesEntity, { onDelete: "SET NULL" })
+    @JoinColumn({ name: "profile_id" })
+    profile!: ProfilesEntity;
 
+    // Record creation timestamp
     @CreateDateColumn({
-        type: 'timestamp',
+        type: "timestamp",
         precision: 6,
-        default: () => 'CURRENT_TIMESTAMP(6)',
+        default: () => "CURRENT_TIMESTAMP(6)",
     })
-    created_at: Date;
+    created_at!: Date;
 
+    // Record last update timestamp
     @UpdateDateColumn({
-        type: 'timestamp',
+        type: "timestamp",
         precision: 6,
-        default: () => 'CURRENT_TIMESTAMP(6)',
-        onUpdate: 'CURRENT_TIMESTAMP(6)',
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
     })
-    updated_at: Date;
+    updated_at!: Date;
 }

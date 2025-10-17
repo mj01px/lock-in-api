@@ -3,17 +3,17 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity('profiles')
 export class ProfilesEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column({ type: 'varchar', length: 100 })
-    profile: string;
+    profile!: string;
 
     @CreateDateColumn({
         type: 'timestamp',
         precision: 6,
         default: () => 'CURRENT_TIMESTAMP(6)',
     })
-    created_at: Date;
+    created_at!: Date;
 
     @UpdateDateColumn({
         type: 'timestamp',
@@ -21,5 +21,5 @@ export class ProfilesEntity {
         default: () => 'CURRENT_TIMESTAMP(6)',
         onUpdate: 'CURRENT_TIMESTAMP(6)',
     })
-    updated_at: Date;
+    updated_at!: Date;
 }
