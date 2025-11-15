@@ -1,81 +1,56 @@
 # Lock-In API
 
-A clean, production-ready backend service built with **Node.js** and **TypeScript**, designed for authentication, role-based access, and user management.
+![Node](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![TypeORM](https://img.shields.io/badge/TypeORM-red?style=for-the-badge&logo=typeorm&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-Lock-In API emphasizes **security**, **scalability**, and **code clarity**, following a modular architecture that cleanly separates responsibilities into controllers, services, repositories, and entities.
-
----
-
-## Introduction
-
-Lock-In API provides a full backend foundation for authentication-driven applications.  
-It includes everything from **JWT-based authentication** and **role verification** to **cookie sessions** and **database persistence**.
-
-This project was built to be lightweight, extensible, and easy to integrate with any frontend or mobile app.
+This repository contains the source code for a modern backend API built with **Node.js** and **TypeScript**, focused on **authentication**, **role-based access**, and **user management**.  
+The project follows clean modular architecture with controllers, services, repositories, and entities for scalability and clarity.
 
 ---
 
-## Table of Contents
-1. [Overview](#overview)  
-2. [Tech Stack](#tech-stack)  
-3. [Architecture](#architecture)  
-4. [Setup Guide](#setup-guide)  
-5. [Environment Variables](#environment-variables)  
-6. [Author](#author)
+## 📜 About the Project
+
+The **Lock-In API** provides a solid foundation for authentication-based applications.  
+It includes:
+
+- Secure login with **JWT**  
+- Role-based access control (**RBAC**)  
+- **HTTP-only cookies** for session protection  
+- Full integration with **TypeORM** and relational databases  
 
 ---
 
-## Overview
+## Key Features
 
-The API provides endpoints for:
-- **User authentication** (login, logout, session validation)  
-- **Role-based access control** (admin / user)  
-- **CRUD operations** for both users and profiles  
-- Secure **HTTP-only cookies** for token storage  
-- Seamless integration with **TypeORM** and relational databases
+* **JWT Authentication**
+* **Role-Based Access Control (RBAC)**
+* **CRUD for Users and Profiles**
+* **Secure HTTP-only Cookies**
+* **Modular Architecture**
+* **TypeORM Integration**
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-------------|
-| **Language** | TypeScript |
-| **Runtime** | Node.js |
-| **Framework** | Express |
-| **ORM** | TypeORM |
-| **Database** | MySQL / PostgreSQL |
-| **Authentication** | JSON Web Token (JWT), bcryptjs |
-| **Utilities** | CORS, cookie-parser, reflect-metadata |
-| **Dev Tools** | ts-node-dev, TypeScript, Yarn |
+* **Node.js**
+* **TypeScript**
+* **Express**
+* **TypeORM**
+* **MySQL / PostgreSQL**
+* **bcryptjs**
+* **jsonwebtoken**
+* **cookie-parser**
+* **CORS**
+* **Reflect-metadata**
+* **ts-node-dev**
 
 ---
 
-## Architecture
-
-```
-src/
- ├── config/          # Environment and CORS configuration
- ├── controllers/     # Handle HTTP requests and responses
- ├── database/        # TypeORM connection setup
- ├── entities/        # Database models
- ├── interfaces/      # Type definitions
- ├── middleware/      # Authentication and role guards
- ├── repositories/    # Data access layer
- ├── routes/          # API routes
- ├── services/        # Business logic
- └── server.ts        # Application entry point
-```
-
-The architecture follows a **Service-Repository pattern**:
-- **Controller**: Receives requests, returns responses.  
-- **Service**: Handles business logic.  
-- **Repository**: Manages database operations.  
-- **Entity**: Represents database models.  
-
----
-
-## Setup Guide
+## Running the Project Locally
 
 ### 1. Clone the repository
 ```bash
@@ -88,10 +63,10 @@ cd lock-in-api
 yarn install
 ```
 
-### 3. Configure the environment
-Create a `.env` file at the root of your project:
+### 3. Environment Variables
+Create a `.env` file at the root:
 
-```bash
+```
 JWT_SECRET=super-secret-lockin
 COOKIE_NAME=auth
 DB_TYPE=mysql
@@ -102,12 +77,13 @@ DB_PASS=password
 DB_NAME=lockin
 ```
 
-### 4. Run the database migrations
+### 4. Run migrations
 ```bash
 yarn typeorm migration:run
 ```
 
 ### 5. Start the server
+
 **Development**
 ```bash
 yarn dev
@@ -118,19 +94,19 @@ yarn dev
 yarn start
 ```
 
-Once running, the API will be available at:
+API will be available at:
 ```
 http://localhost:3000
 ```
 
 ---
 
-## Environment Variables
+## 🔑 Environment Variables
 
 | Variable | Description |
 |-----------|--------------|
-| `JWT_SECRET` | Secret key for signing JWTs |
-| `COOKIE_NAME` | Cookie identifier for sessions |
+| `JWT_SECRET` | JWT signing key |
+| `COOKIE_NAME` | Cookie identifier |
 | `DB_TYPE` | Database type |
 | `DB_HOST` | Database host |
 | `DB_PORT` | Database port |
@@ -140,7 +116,7 @@ http://localhost:3000
 
 ---
 
-## Author
+## 👤 Author
 
 Developed by **Mauro Junior**  
 Project: **Lock-In API**  
